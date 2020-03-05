@@ -2,6 +2,7 @@ package com.robincn.activitytest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,7 +21,11 @@ public class FristActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(FristActivity.this,"You clicked Button", Toast.LENGTH_SHORT).show();
-                finish();
+                //Intent intent = new Intent(FristActivity.this, SecondActivity.class);
+                Intent intent = new Intent("com.robincn.activitytest.ACTION_START");
+                intent.addCategory("com.robincn.activitytest.MY_CATEGORY");
+                startActivity(intent);
+                //finish();
             }
         });
     }
