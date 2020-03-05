@@ -1,10 +1,12 @@
 package com.robincn.activitytest;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,14 +24,17 @@ public class FristActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(FristActivity.this,"You clicked Button", Toast.LENGTH_SHORT).show();
-                //Intent intent = new Intent(FristActivity.this, SecondActivity.class);
+                String data = "My Activity";
+                Intent intent = new Intent(FristActivity.this, SecondActivity.class);
+                intent.putExtra("extra_data", data);
+                startActivityForResult(intent, 1001);
                 //Intent intent = new Intent("com.robincn.activitytest.ACTION_START");
                 //intent.addCategory("com.robincn.activitytest.MY_CATEGORY");
                 //Intent intent = new Intent(Intent.ACTION_VIEW);
                 //intent.setData(Uri.parse("http://robincn.com"));
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:10086"));
-                startActivity(intent);
+                //Intent intent = new Intent(Intent.ACTION_DIAL);
+                //intent.setData(Uri.parse("tel:10086"));
+                //startActivity(intent);
                 //finish();
             }
         });
@@ -53,5 +58,17 @@ public class FristActivity extends AppCompatActivity {
             default:
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case 1001:
+                if(RESULT_OK == resultCode) {
+                    String returnedData = data.getStringExtra("data_return");
+                    Log.d("FirstActivity", returnedData);
+                }
+        }
     }
 }
