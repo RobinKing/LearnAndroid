@@ -3,6 +3,7 @@ package com.robincn.activitytest;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,8 +23,12 @@ public class FristActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(FristActivity.this,"You clicked Button", Toast.LENGTH_SHORT).show();
                 //Intent intent = new Intent(FristActivity.this, SecondActivity.class);
-                Intent intent = new Intent("com.robincn.activitytest.ACTION_START");
-                intent.addCategory("com.robincn.activitytest.MY_CATEGORY");
+                //Intent intent = new Intent("com.robincn.activitytest.ACTION_START");
+                //intent.addCategory("com.robincn.activitytest.MY_CATEGORY");
+                //Intent intent = new Intent(Intent.ACTION_VIEW);
+                //intent.setData(Uri.parse("http://robincn.com"));
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:10086"));
                 startActivity(intent);
                 //finish();
             }
