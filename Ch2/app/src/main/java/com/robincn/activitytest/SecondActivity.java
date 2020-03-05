@@ -29,4 +29,13 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        Intent intent = new Intent();
+        intent.putExtra("data_return", "You pressed back, FirstActivity");
+        setResult(RESULT_OK, intent);
+        finish();
+    }
 }
