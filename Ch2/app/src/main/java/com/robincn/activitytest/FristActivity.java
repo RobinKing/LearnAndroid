@@ -18,16 +18,15 @@ public class FristActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("FirstActivity", "Task id is " + getTaskId());
         setContentView(R.layout.first_layout);
         Button button1 = (Button) findViewById(R.id.button1);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(FristActivity.this,"You clicked Button", Toast.LENGTH_SHORT).show();
-                String data = "My Activity";
                 Intent intent = new Intent(FristActivity.this, SecondActivity.class);
-                intent.putExtra("extra_data", data);
-                startActivityForResult(intent, 1001);
+                startActivity(intent);
                 //Intent intent = new Intent("com.robincn.activitytest.ACTION_START");
                 //intent.addCategory("com.robincn.activitytest.MY_CATEGORY");
                 //Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -44,6 +43,12 @@ public class FristActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("FirstActivity", "onRestart");
     }
 
     @Override
