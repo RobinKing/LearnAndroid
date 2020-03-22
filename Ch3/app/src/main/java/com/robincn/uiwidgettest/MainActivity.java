@@ -8,18 +8,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText editText;
     private ImageView imageView;
+    private ProgressBar progressBar;
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button:
-                imageView.setImageResource(R.drawable.img_2);
+                if (progressBar.getVisibility() == View.GONE) {
+                    progressBar.setVisibility(View.VISIBLE);
+                } else {
+                    progressBar.setVisibility(View.GONE);
+                }
                 break;
             default:
                 break;
@@ -34,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editText = (EditText) findViewById(R.id.edit_text);
         button.setOnClickListener(this);
         imageView = (ImageView) findViewById(R.id.image_view);
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
 /*        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
