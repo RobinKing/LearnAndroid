@@ -3,6 +3,7 @@ package com.robincn.uiwidgettest;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,23 +24,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button:
-                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
-                dialog.setTitle("This is Alert Dialog");
-                dialog.setMessage("Something important.");
-                dialog.setCancelable(false);
-                dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity.this, "You choosed ok", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity.this, "You canceled", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                dialog.show();
+//                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+                ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
+                progressDialog.setTitle("This is Progress Dialog");
+                progressDialog.setMessage("Loding...");
+                progressDialog.setCancelable(true);
+                progressDialog.show();
+//                progressDialog.dismiss();
                break;
             default:
                 break;
