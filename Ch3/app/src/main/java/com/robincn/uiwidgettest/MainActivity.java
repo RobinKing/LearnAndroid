@@ -1,7 +1,9 @@
 package com.robincn.uiwidgettest;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,17 +23,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button:
-                if (progressBar.getVisibility() == View.GONE) {
-                    progressBar.setVisibility(View.VISIBLE);
-                }
-                int progress = progressBar.getProgress();
-                progress = progress + 10;
-                progressBar.setProgress(progress);
-                if (progress > 100) {
-                    progressBar.setVisibility(View.GONE);
-                    progressBar.setProgress(0);
-                }
-                break;
+                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+                dialog.setTitle("This is Alert Dialog");
+                dialog.setMessage("Something important.");
+                dialog.setCancelable(false);
+                dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this, "You choosed ok", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this, "You canceled", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                dialog.show();
+               break;
             default:
                 break;
         }
