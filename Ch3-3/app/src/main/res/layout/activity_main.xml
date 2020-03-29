@@ -6,11 +6,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/text_view"
+        android:layout_gravity="right"
         android:text="This is TextView"></TextView>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/image_view"
+        android:layout_gravity="bottom"
         android:src="@mipmap/ic_launcher"></ImageView>
 </FrameLayout>
