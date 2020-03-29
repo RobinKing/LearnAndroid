@@ -1,18 +1,19 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/text_view"
-        android:layout_gravity="right"
-        android:text="This is TextView"></TextView>
+    <Button
+        android:id="@+id/button1"
+        android:text="Button 1"
+        app:layout_widthPercent="50%"
+        app:layout_heightPercent="50%">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/image_view"
-        android:layout_gravity="bottom"
-        android:src="@mipmap/ic_launcher"></ImageView>
-</FrameLayout>
+    <Button
+        android:id="@+id/button2"
+        android:text="Button 2"
+        app:layout_widthPercent="50%"
+        app:layout_heightPercent="50%">
+
+</android.support.percent.PercentRelativeLayout>
