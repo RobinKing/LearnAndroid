@@ -3,24 +3,16 @@
     android:layout_width="match_parent"
     android:orientation="horizontal">
 
-    <Button
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:id="@+id/button1"
-        android:text="Buton 1" ></Button>
+        android:id="@+id/input_message"
+        android:layout_weight="2"
+        android:hint="Type something"></EditText>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:id="@+id/button2"
-        android:text="Button 2"></Button>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:id="@+id/button3"
-        android:text="Button 3"></Button>
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:id="@+id/send"
+       android:text="Send"></Button>
 </LinearLayout>
