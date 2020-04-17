@@ -1,19 +1,6 @@
-<android.support.percent.PercentRelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button1"
-        android:text="Button 1"
-        app:layout_widthPercent="50%"
-        app:layout_heightPercent="50%">
-
-    <Button
-        android:id="@+id/button2"
-        android:text="Button 2"
-        app:layout_widthPercent="50%"
-        app:layout_heightPercent="50%">
-
-</android.support.percent.PercentRelativeLayout>
+    <include layout="@layout/title"></include>
+</LinearLayout>
