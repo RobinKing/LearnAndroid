@@ -35,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
                 intent.setComponent(new ComponentName("com.robincn.broadcasttest",
                         "com.robincn.broadcasttest.MyBroadcastReceiver"));
                 sendBroadcast(intent);
+                intent.setComponent(new ComponentName("com.robincn.broadcasttest2",
+                        "com.robincn.broadcasttest2.AnotherBroadcastReceiver"));
+                sendBroadcast(intent);
             }
         });
         intentFilter = new IntentFilter();
