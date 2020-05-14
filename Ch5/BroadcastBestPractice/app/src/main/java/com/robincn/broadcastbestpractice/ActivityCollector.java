@@ -1,3 +1,5 @@
+package com.robincn.broadcastbestpractice;
+
 import android.app.ActionBar;
 import android.app.Activity;
 
