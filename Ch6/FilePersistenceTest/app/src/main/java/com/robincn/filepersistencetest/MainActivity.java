@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -24,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         edit = (EditText) findViewById(R.id.edit);
+        String inputText = load();
+        if (!TextUtils.isEmpty(inputText)) {
+            edit.setText(inputText);
+            edit.setSelection(inputText.length());
+            Toast.makeText(this, "Restoring succeeded", Toast.LENGTH_SHORT);
+        }
     }
 
     @Override
