@@ -33,4 +33,28 @@
         android:id="@+id/query_data"
         android:text="Query data"></Button>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sql_add_data"
+        android:text="Add data with SQL"></Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sql_update_data"
+        android:text="Update data with SQL"></Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sql_delete_data"
+        android:text="Delete data with SQL"></Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sql_query_data"
+        android:text="Query data with SQL"></Button>
+
 </LinearLayout>

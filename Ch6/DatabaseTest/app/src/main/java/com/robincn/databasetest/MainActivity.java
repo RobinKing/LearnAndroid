@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.strictmode.SqliteObjectLeakedViolation;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -80,6 +81,50 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("MainActivity", "book page is " + pages);
                         Log.d("MainActivity", "book price is " + price);
                     } while (cursor.moveToNext());
+                }
+                cursor.close();
+            }
+        });
+        Button addDataSQL = findViewById(R.id.sql_add_data);
+        addDataSQL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                db.execSQL("insert into Book (name, author, pages, price) values(?,?,?,?)",
+                        new String[] {"The Da Code", "Dan Brown", "551", "19.36"});
+            }
+        });
+        Button updateDataSQL = findViewById(R.id.sql_update_data);
+        updateDataSQL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                db.execSQL("update Book set price = ? where name = ?",
+                        new String[] {"10.12", "The Da Code"});
+            }
+        });
+        Button deleteDataSQL = findViewById(R.id.sql_delete_data);
+        deleteDataSQL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                db.execSQL("delete from Book where pages > ?",
+                        new String[] {"500"});
+            }
+        });
+        Button queryDataSQL = findViewById(R.id.sql_query_data);
+        queryDataSQL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                Cursor cursor = db.rawQuery("select * from Book", null);
+                if (cursor.moveToFirst()) {
+                    do {
+                        //
+                        String name = cursor.getString(cursor.getColumnIndex("name"));
+
+                        Log.d("MainActivitySQL", "book name is " + name);
+                    } while(cursor.moveToNext());
                 }
                 cursor.close();
             }
