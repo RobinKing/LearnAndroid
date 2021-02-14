@@ -22,5 +22,21 @@ public class MainActivity extends AppCompatActivity {
                 LitePal.getDatabase();
             }
         });
+
+        Button addData = (Button) findViewById(R.id.add_data);
+        addData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Book book = new Book();
+                book.setName("The Lost Symbol");
+                book.setAuthor("Dan Brown");
+                book.setPages(514);
+                book.setPrice(19.95);
+                book.setPress("Unknown");
+                book.save();
+                book.setPrice(10.99);
+                book.save();
+            }
+        });
     }
 }

@@ -1,6 +1,8 @@
 package com.robincn.litepaltest;
 
-class Category {
+import org.litepal.crud.LitePalSupport;
+
+class Category extends LitePalSupport{
     private int id;
     private String category;
     private int categoryCode;
