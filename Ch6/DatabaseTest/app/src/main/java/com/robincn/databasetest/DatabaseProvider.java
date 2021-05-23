@@ -74,12 +74,12 @@ public class DatabaseProvider extends ContentProvider {
             case BOOK_DIR:
             case BOOK_ITEM:
                 long newBookId = db.insert("Book", null, values);
-                uriReturn = Uri.parse("content://" + AUTHORITY + "book" + newBookId);
+                uriReturn = Uri.parse("content://" + AUTHORITY + "/book/" + newBookId);
                 break;
             case CATEGORY_DIR:
             case CATEGORY_ITEM:
                 long newCategoryId = db.insert("Category", null, values);
-                uriReturn = Uri.parse("content://" + AUTHORITY + "category" + newCategoryId);
+                uriReturn = Uri.parse("content://" + AUTHORITY + "/category/" + newCategoryId);
                 break;
             default:
                 break;
