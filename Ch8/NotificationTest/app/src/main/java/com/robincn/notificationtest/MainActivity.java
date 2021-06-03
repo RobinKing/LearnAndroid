@@ -30,11 +30,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.send_notice:
+                NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                if(Build.VERSION.SDK_INT >= 26) {
+                    NotificationChannel notificationChannel = new NotificationChannel("1", "my_channel", NotificationManager.IMPORTANCE_LOW);
+                    manager.createNotificationChannel(notificationChannel);
+                }
+
                 Intent intent = new Intent(this, NotificationActivity.class);
                 PendingIntent pi = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
-                NotificationChannel notificationChannel = new NotificationChannel("1", "my_channel", NotificationManager.IMPORTANCE_LOW);
-                NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                manager.createNotificationChannel(notificationChannel);
+
                 Notification notification = new NotificationCompat.Builder(this, "1")
                         .setContentTitle("This is content title")
                         .setContentText("This is content text")
@@ -42,7 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .setSmallIcon(R.mipmap.ic_launcher)
                         .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
                         .setContentIntent(pi)
-//                        .setAutoCancel(true)
+                        .setAutoCancel(true)
+                        .setVibrate(new long[] {0, 1000, 1000, 1000 })
                         .build();
                 manager.notify(1, notification);
                 break;
