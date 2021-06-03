@@ -41,13 +41,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Notification notification = new NotificationCompat.Builder(this, "1")
                         .setContentTitle("This is content title")
-                        .setContentText("This is content text")
                         .setWhen(System.currentTimeMillis())
                         .setSmallIcon(R.mipmap.ic_launcher)
                         .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
                         .setContentIntent(pi)
                         .setAutoCancel(true)
                         .setVibrate(new long[] {0, 1000, 1000, 1000 })
+                        .setStyle(new NotificationCompat.BigTextStyle().bigText("Learn how to use notifications, send and sync data, and use voice actions. And test"))
+                        .setPriority(NotificationCompat.PRIORITY_MAX)
                         .build();
                 manager.notify(1, notification);
                 break;
